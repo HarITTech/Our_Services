@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HarIT Tech Solutions - Professional Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .presentation-container {
+            width: 100%;
+            max-width: 100%;
+            height: 100vh;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        /* ============ HEADER ============ */
+        .header {
+            background: linear-gradient(90deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(15, 23, 42, 0.1);
+            flex-shrink: 0;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.1));
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .company-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .company-name {
+            color: #0f172a;
+            font-size: 1.2em;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline-header {
+            color: #64748b;
+            font-size: 0.65em;
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        .slide-title-header {
+            color: #1e293b;
+            font-size: 0.9em;
+            font-weight: 700;
+            text-align: right;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ============ SLIDES CONTAINER ============ */
+        .slides-container {
+            flex: 1;
+            position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 #f1f5f9;
+        }
+
+        .slides-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .slides-container::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+
+        .slides-container::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .slides-container::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            min-height: 100vh;
+            padding: 40px 30px;
+            animation: slideInRight 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ============ TITLE SLIDE ============ */
+        .slide.title-slide {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide.title-slide::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            top: -150px;
+            right: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .slide.title-slide::after {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            bottom: -200px;
+            left: -150px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(30px); }
+        }
+
+        .title-slide-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .title-slide-logo {
+            height: 150px;
+            width: auto;
+            object-fit: contain;
+            margin: 20px 0;
+            filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.2));
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .title-slide-content h1 {
+            font-size: 3.5em;
+            margin: 15px 0;
+            font-weight: 900;
+            letter-spacing: -2px;
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .title-slide-content p {
+            font-size: 1.4em;
+            opacity: 0.95;
+            margin: 12px 0;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .title-slide-content .tagline {
+            font-size: 1.1em;
+            opacity: 0.9;
+            margin-top: 15px;
+            letter-spacing: 2px;
+            animation: fadeInUp 1.6s ease-out;
+        }
+
+        /* ============ SERVICE OVERVIEW SLIDE ============ */
+        .service-overview-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .service-header-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .service-header-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.25);
+        }
+
+        .service-header-text h1 {
+            color: #0f172a;
+            font-size: 2.5em;
+            line-height: 1.1;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 15px rgba(51, 65, 85, 0.1);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            transition: left 0.6s ease;
+            z-index: 0;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+            border-color: #667eea;
+        }
+
+        .service-card-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .service-card-icon {
+            font-size: 2.8em;
+            display: block;
+        }
+
+        .service-card-text {
+            font-size: 0.95em;
+            font-weight: 700;
+            color: #1e293b;
+            line-height: 1.4;
+            letter-spacing: 0.3px;
+        }
+
+        /* ============ SERVICE DETAIL SLIDES ============ */
+        .service-detail-slide {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+        }
+
+        .service-detail-header {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 30px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .service-detail-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: white;
+            flex-shrink: 0;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.25);
+        }
+
+        .service-detail-header h1 {
+            color: #0f172a;
+            font-size: 2.2em;
+            line-height: 1.1;
+            font-weight: 900;
+            letter-spacing: -1px;
+        }
+
+        .service-description {
+            color: #334155;
+            font-size: 1em;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+            animation: fadeInUp 0.9s ease-out;
+        }
+
+        .features-container {
+            margin: 25px 0;
+        }
+
+        .features-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .features-list li {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            position: relative;
+            padding-left: 45px;
+            color: #334155;
+            font-size: 0.95em;
+            line-height: 1.6;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+            transition: all 0.3s ease;
+            border-left: 3px solid #667eea;
+        }
+
+        .features-list li:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+        }
+
+        .features-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .features-list li strong {
+            color: #0f172a;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .price-section {
+            margin-top: 25px;
+            animation: scaleIn 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .price-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.15em;
+            font-weight: 800;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50%, 50%); }
+        }
+
+        .price-box span {
+            position: relative;
+            z-index: 1;
+            display: block;
+            letter-spacing: 0.5px;
+        }
+
+        /* ============ THANK YOU SLIDE ============ */
+        .thank-you-slide {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thank-you-slide::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            top: -200px;
+            right: -200px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .thank-you-slide::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -100px;
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        .thank-you-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .thank-you-icon {
+            font-size: 4em;
+            margin-bottom: 25px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .thank-you-content h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .thank-you-content p {
+            font-size: 1.1em;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .cta-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 35px;
+            border-radius: 16px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .cta-box p:first-child {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: 800;
+        }
+
+        .cta-box p:last-child {
+            font-size: 1em;
+            opacity: 0.9;
+        }
+
+        /* ============ FOOTER ============ */
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            background: white;
+            border-top: 2px solid #e2e8f0;
+            flex-shrink: 0;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 22px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
+            letter-spacing: 0.3px;
+        }
+
+        button:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        button:active:not(:disabled) {
+            transform: translateY(-1px);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-indicators {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border: 2px solid #667eea;
+        }
+
+        .indicator.active {
+            background: #667eea;
+            transform: scale(1.4);
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+        }
+
+        .indicator:hover {
+            transform: scale(1.2);
+        }
+
+        .slide-counter {
+            color: #0f172a;
+            font-weight: 800;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ============ RESPONSIVE DESIGN ============ */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .title-slide-content h1 {
+                font-size: 2.8em;
+            }
+
+            .service-detail-header h1 {
+                font-size: 1.9em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 12px 20px;
+            }
+
+            .slide {
+                padding: 30px 20px;
+                min-height: auto;
+            }
+
+            .logo-img {
+                height: 40px;
+            }
+
+            .company-name {
+                font-size: 1em;
+            }
+
+            .tagline-header {
+                font-size: 0.6em;
+            }
+
+            .slide-title-header {
+                font-size: 0.8em;
+            }
+
+            .title-slide-content h1 {
+                font-size: 2.2em;
+            }
+
+            .title-slide-content p {
+                font-size: 1.1em;
+            }
+
+            .title-slide-content .tagline {
+                font-size: 0.9em;
+            }
+
+            .title-slide-logo {
+                height: 100px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .service-header-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .service-header-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5em;
+            }
+
+            .service-header-text h1 {
+                font-size: 1.8em;
+            }
+
+            .service-detail-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+
+            .service-detail-icon {
+                width: 75px;
+                height: 75px;
+                font-size: 2.5em;
+            }
+
+            .service-detail-header h1 {
+                font-size: 1.6em;
+            }
+
+            .features-list {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .features-list li {
+                font-size: 0.9em;
+                padding: 15px;
+                padding-left: 40px;
+            }
+
+            .service-description {
+                font-size: 0.95em;
+                padding: 18px;
+            }
+
+            .price-box {
+                font-size: 1em;
+                padding: 20px;
+            }
+
+            .thank-you-content h1 {
+                font-size: 2em;
+            }
+
+            .thank-you-content p {
+                font-size: 1em;
+            }
+
+            .thank-you-icon {
+                font-size: 3em;
+            }
+
+            .cta-box {
+                padding: 25px;
+            }
+
+            .cta-box p:first-child {
+                font-size: 1.1em;
+            }
+
+            .cta-box p:last-child {
+                font-size: 0.95em;
+            }
+
+            .footer {
+                padding: 15px 20px;
+                gap: 10px;
+            }
+
+            button {
+                padding: 8px 20px;
+                font-size: 0.85em;
+            }
+
+            .slide-counter {
+                font-size: 0.8em;
+            }
+
+            .nav-buttons {
+                order: 1;
+                width: 100%;
+            }
+
+            button {
+                flex: 1;
+            }
+
+            .slide-indicators {
+                order: 2;
+                width: 100%;
+            }
+
+            .slide-counter {
+                order: 3;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 10px 15px;
+            }
+
+            .slide {
+                padding: 25px 15px;
+            }
+
+            .logo-img {
+                height: 35px;
+            }
+
+            .company-name {
+                font-size: 0.9em;
+            }
+
+            .logo-section {
+                gap: 10px;
+            }
+
+            .company-info {
+                gap: 2px;
+            }
+
+            .title-slide-content h1 {
+                font-size: 1.8em;
+            }
+
+            .title-slide-content p {
+                font-size: 1em;
+            }
+
+            .title-slide-content .tagline {
+                font-size: 0.8em;
+                letter-spacing: 0.5px;
+            }
+
+            .title-slide-logo {
+                height: 80px;
+            }
+
+            .service-card {
+                padding: 20px 15px;
+                min-height: 130px;
+            }
+
+            .service-card-icon {
+                font-size: 2.2em;
+            }
+
+            .service-card-text {
+                font-size: 0.85em;
+            }
+
+            .service-header-text h1 {
+                font-size: 1.4em;
+            }
+
+            .service-detail-header h1 {
+                font-size: 1.3em;
+            }
+
+            .features-list li {
+                font-size: 0.85em;
+                padding: 12px 15px;
+            }
+
+            .thank-you-content h1 {
+                font-size: 1.5em;
+            }
+
+            .thank-you-content p {
+                font-size: 0.95em;
+            }
+
+            button {
+                padding: 8px 15px;
+                font-size: 0.8em;
+            }
+
+            .indicator {
+                width: 8px;
+                height: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-section">
+                <img src="HarIT_Tech_Logo_Transperent.png" alt="HarIT Logo" class="logo-img">
+                <div class="company-info">
+                    <div class="company-name">HarIT Tech Solutions</div>
+                    <div class="tagline-header">TRANSFORMING IDEAS INTO DIGITAL REALITY</div>
+                </div>
+            </div>
+            <div class="slide-title-header" id="headerTitle">Professional Technology Services</div>
+        </div>
+
+        <!-- Slides Container -->
+        <div class="slides-container">
+            <!-- Slide 1: Title Slide -->
+            <div class="slide title-slide active">
+                <div class="title-slide-content">
+                    <img src="HarIT_Tech_Logo_Transperent.png" alt="HarIT Logo" class="title-slide-logo">
+                    <h1>HarIT Tech Solutions</h1>
+                    <p>Professional Technology Services</p>
+                    <div class="tagline">Comprehensive Solutions for Digital Transformation</div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Services Overview -->
+            <div class="slide service-detail-slide">
+                <div class="service-overview-content">
+                    <div class="service-header-section">
+                        <div class="service-header-icon">🎯</div>
+                        <div class="service-header-text">
+                            <h1>Our Core Services</h1>
+                        </div>
+                    </div>
+                    <div class="services-grid">
+                        <div class="service-card" onclick="goToSlide(2)">
+                            <div class="service-card-content">
+                                <span class="service-card-icon">🌐</span>
+                                <div class="service-card-text">Website & App Development</div>
+                            </div>
+                        </div>
+                        <div class="service-card" onclick="goToSlide(3)">
+                            <div class="service-card-content">
+                                <span class="service-card-icon">🤖</span>
+                                <div class="service-card-text">AI Automation & Agentic Systems</div>
+                            </div>
+                        </div>
+                        <div class="service-card" onclick="goToSlide(4)">
+                            <div class="service-card-content">
+                                <span class="service-card-icon">🧠</span>
+                                <div class="service-card-text">Custom AI & ML Solutions</div>
+                            </div>
+                        </div>
+                        <div class="service-card" onclick="goToSlide(5)">
+                            <div class="service-card-content">
+                                <span class="service-card-icon">☁️</span>
+                                <div class="service-card-text">Cloud & API Integration</div>
+                            </div>
+                        </div>
+                        <div class="service-card" onclick="goToSlide(6)">
+                            <div class="service-card-content">
+                                <span class="service-card-icon">💾</span>
+                                <div class="service-card-text">Database Management</div>
+                            </div>
+                        </div>
+                        <div class="service-card" onclick="goToSlide(7)">
+                            <div class="service-card-content">
+                                <span class="service-card-icon">📊</span>
+                                <div class="service-card-text">ERP System Development</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Website & App Development -->
+            <div class="slide service-detail-slide">
+                <div class="service-detail-header">
+                    <div class="service-detail-icon">🌐</div>
+                    <h1>Website & App Development</h1>
+                </div>
+                <div class="service-description">
+                    We design and develop user-friendly, responsive, and high-performance websites and applications tailored to your brand and business objectives. From concept to deployment, we ensure exceptional digital experiences.
+                </div>
+                <div class="features-container">
+                    <ul class="features-list">
+                        <li><strong>Static & Dynamic Websites</strong> Fast-loading, SEO-optimized web solutions for maximum visibility</li>
+                        <li><strong>E-Commerce Platforms</strong> Product selling solutions supporting B2B and B2C models</li>
+                        <li><strong>Portfolio Websites</strong> Professional digital presence to showcase your work</li>
+                        <li><strong>Custom Web Applications</strong> Built with React, Angular, Next.js, and modern frameworks</li>
+                        <li><strong>Mobile Apps</strong> Native and cross-platform development using Flutter and React Native</li>
+                        <li><strong>PWA Development</strong> Progressive Web Apps delivering app-like experiences</li>
+                    </ul>
+                </div>
+                <div class="price-section">
+                    <div class="price-box">
+                        <span>💰 Price Range: INR 5,000 - 45,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: AI Automation -->
+            <div class="slide service-detail-slide">
+                <div class="service-detail-header">
+                    <div class="service-detail-icon">🤖</div>
+                    <h1>AI Automation & Agentic Systems</h1>
+                </div>
+                <div class="service-description">
+                    We build intelligent AI-driven systems that automate complex tasks, enhance productivity, and improve user engagement. Let artificial intelligence handle repetitive work while your team focuses on strategic initiatives.
+                </div>
+                <div class="features-container">
+                    <ul class="features-list">
+                        <li><strong>AI Chatbots & Assistants</strong> 24/7 customer support and intelligent lead generation</li>
+                        <li><strong>Workflow Automation</strong> Eliminate repetitive tasks and boost operational efficiency</li>
+                        <li><strong>Document & Data Processing</strong> Smart extraction and intelligent document handling</li>
+                        <li><strong>Email & Chat Integration</strong> Seamless communication automation and management</li>
+                        <li><strong>API-based AI Agents</strong> Custom or local language models for your specific needs</li>
+                        <li><strong>Multi-Agent Systems</strong> Complex AI orchestration for enterprise applications</li>
+                    </ul>
+                </div>
+                <div class="price-section">
+                    <div class="price-box">
+                        <span>💰 Price Range: INR 10,000 - 75,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Custom AI & ML -->
+            <div class="slide service-detail-slide">
+                <div class="service-detail-header">
+                    <div class="service-detail-icon">🧠</div>
+                    <h1>Custom AI & ML Solutions</h1>
+                </div>
+                <div class="service-description">
+                    We develop custom machine learning models tailored to your specific business requirements. Harness the power of data analytics and artificial intelligence for smarter business decisions and competitive advantages.
+                </div>
+                <div class="features-container">
+                    <ul class="features-list">
+                        <li><strong>Predictive Analytics</strong> Data-driven forecasting for strategic business planning</li>
+                        <li><strong>Image & Object Detection</strong> Computer vision solutions for automation and analysis</li>
+                        <li><strong>Behavioral Analytics</strong> Age, gender, and sentiment analysis with precision</li>
+                        <li><strong>Recommendation Engines</strong> Personalized experiences driving conversions and loyalty</li>
+                        <li><strong>Data Insights Dashboards</strong> Real-time analytics and actionable visualizations</li>
+                        <li><strong>NLP Solutions</strong> Natural language processing for intelligent text analysis</li>
+                    </ul>
+                </div>
+                <div class="price-section">
+                    <div class="price-box">
+                        <span>💰 Price Range: INR 15,000 - 1,00,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Cloud & API Integration -->
+            <div class="slide service-detail-slide">
+                <div class="service-detail-header">
+                    <div class="service-detail-icon">☁️</div>
+                    <h1>Cloud & API Integration Services</h1>
+                </div>
+                <div class="service-description">
+                    We deploy, manage, and integrate scalable cloud and API solutions that ensure optimal performance and reliability. Build systems that grow with your business while maintaining cost-effectiveness and security.
+                </div>
+                <div class="features-container">
+                    <ul class="features-list">
+                        <li><strong>Cloud Deployment</strong> AWS, GCP, and Azure infrastructure setup and management</li>
+                        <li><strong>API Development & Integration</strong> RESTful and GraphQL APIs for seamless connectivity</li>
+                        <li><strong>Cloud-based AI Hosting</strong> Scale machine learning models with enterprise infrastructure</li>
+                        <li><strong>24x7 API Access</strong> Reliable endpoints with industry-leading uptime guarantees</li>
+                        <li><strong>Microservices Architecture</strong> Scalable and maintainable distributed system design</li>
+                        <li><strong>CI/CD Pipeline Setup</strong> Automated testing and continuous deployment workflows</li>
+                    </ul>
+                </div>
+                <div class="price-section">
+                    <div class="price-box">
+                        <span>💰 Price Range: INR 8,000 - 40,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Database Management -->
+            <div class="slide service-detail-slide">
+                <div class="service-detail-header">
+                    <div class="service-detail-icon">💾</div>
+                    <h1>Database Management & Optimization</h1>
+                </div>
+                <div class="service-description">
+                    We provide comprehensive database management solutions ensuring data integrity, security, and exceptional performance. Keep your data secure, organized, and instantly accessible for critical business operations.
+                </div>
+                <div class="features-container">
+                    <ul class="features-list">
+                        <li><strong>Database Design & Setup</strong> MySQL, MongoDB, and PostgreSQL expertise</li>
+                        <li><strong>Backup & Recovery Systems</strong> Secure data protection and disaster recovery</li>
+                        <li><strong>Data Migration & Optimization</strong> Seamless transfer and performance tuning</li>
+                        <li><strong>Real-time Synchronization</strong> Keep your data consistent across systems</li>
+                        <li><strong>Database Monitoring</strong> Proactive performance tracking and alerts</li>
+                        <li><strong>Security & Compliance</strong> GDPR and data protection standards</li>
+                    </ul>
+                </div>
+                <div class="price-section">
+                    <div class="price-box">
+                        <span>💰 Price Range: INR 6,000 - 30,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 8: ERP System Development -->
+            <div class="slide service-detail-slide">
+                <div class="service-detail-header">
+                    <div class="service-detail-icon">📊</div>
+                    <h1>ERP System Development</h1>
+                </div>
+                <div class="service-description">
+                    We design scalable Enterprise Resource Planning systems that integrate all business functions. Transform your operations with intelligent systems combining HR, Sales, Inventory, and Finance management.
+                </div>
+                <div class="features-container">
+                    <ul class="features-list">
+                        <li><strong>Custom ERP Development</strong> Tailored to your unique business processes</li>
+                        <li><strong>Inventory & Order Management</strong> Real-time stock tracking and fulfillment</li>
+                        <li><strong>HR & Payroll Modules</strong> Complete employee and compensation management</li>
+                        <li><strong>Finance & Billing Integration</strong> Automated accounting and invoice management</li>
+                        <li><strong>Admin Dashboard & Analytics</strong> Comprehensive insights and KPI tracking</li>
+                        <li><strong>Multi-tenant Architecture</strong> Support multiple organizations and branches</li>
+                    </ul>
+                </div>
+                <div class="price-section">
+                    <div class="price-box">
+                        <span>💰 Price Range: INR 25,000 - 1,50,000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 9: Thank You -->
+            <div class="slide thank-you-slide">
+                <div class="thank-you-content">
+                    <div class="thank-you-icon">🚀</div>
+                    <h1>Let's Transform Your Business</h1>
+                    <p>HarIT Tech Solutions delivers comprehensive, scalable, and innovative technology solutions tailored to your unique business needs and vision.</p>
+                    <div class="cta-box">
+                        <p>Get in Touch Today</p>
+                        <p>Contact us for a free consultation and customized project quotation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="nav-buttons">
+                <button id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+                <button id="nextBtn" onclick="changeSlide(1)">Next →</button>
+            </div>
+            <div class="slide-indicators" id="indicators"></div>
+            <span class="slide-counter" id="counterText">1 / 9</span>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const headerTitle = document.getElementById('headerTitle');
+        const slideHeaders = [
+            'Professional Technology Services',
+            'Our Core Services',
+            'Website & App Development',
+            'AI Automation & Agentic Systems',
+            'Custom AI & ML Solutions',
+            'Cloud & API Integration Services',
+            'Database Management & Optimization',
+            'ERP System Development',
+            'Let\'s Transform Your Business'
+        ];
+
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[n].classList.add('active');
+            
+            headerTitle.textContent = slideHeaders[n];
+            
+            document.getElementById('prevBtn').disabled = n === 0;
+            document.getElementById('nextBtn').disabled = n === totalSlides - 1;
+            
+            updateIndicators();
+            updateCounter();
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 1;
+            if (currentSlide < 0) currentSlide = 0;
+            showSlide(currentSlide);
+        }
+
+        function goToSlide(slideIndex) {
+            currentSlide = slideIndex;
+            showSlide(currentSlide);
+        }
+
+        function updateIndicators() {
+            const indicators = document.querySelectorAll('.indicator');
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function updateCounter() {
+            document.getElementById('counterText').textContent = `${currentSlide + 1} / ${totalSlides}`;
+        }
+
+        function createIndicators() {
+            const indicatorsContainer = document.getElementById('indicators');
+            for (let i = 0; i < totalSlides; i++) {
+                const indicator = document.createElement('div');
+                indicator.className = 'indicator';
+                indicator.onclick = () => {
+                    currentSlide = i;
+                    showSlide(currentSlide);
+                };
+                indicatorsContainer.appendChild(indicator);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') changeSlide(-1);
+            if (e.key === 'ArrowRight') changeSlide(1);
+        });
+
+        createIndicators();
+        showSlide(0);
+    </script>
+</body>
+</html>
