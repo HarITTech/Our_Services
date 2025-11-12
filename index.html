@@ -52,6 +52,7 @@
             display: flex;
             align-items: center;
             gap: 15px;
+            min-width: 0;
         }
 
         .logo-img {
@@ -60,6 +61,7 @@
             object-fit: contain;
             filter: drop-shadow(0 2px 4px rgba(15, 23, 42, 0.1));
             animation: logoFloat 3s ease-in-out infinite;
+            flex-shrink: 0;
         }
 
         @keyframes logoFloat {
@@ -71,6 +73,7 @@
             display: flex;
             flex-direction: column;
             gap: 3px;
+            min-width: 0;
         }
 
         .company-name {
@@ -82,6 +85,9 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .tagline-header {
@@ -89,6 +95,9 @@
             font-size: 0.65em;
             font-weight: 500;
             letter-spacing: 1px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .slide-title-header {
@@ -100,6 +109,9 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         /* ============ SLIDES CONTAINER ============ */
@@ -187,7 +199,7 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-            /* height: 100vh; */
+             /* height: 100vh; */
             height: 100%;
         }
 
@@ -447,8 +459,7 @@
             content: '✓';
             position: absolute;
             left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
+            top: 20px;
             color: white;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             width: 26px;
@@ -459,6 +470,7 @@
             justify-content: center;
             font-weight: bold;
             font-size: 0.9em;
+            flex-shrink: 0;
         }
 
         .features-list li strong {
@@ -623,6 +635,7 @@
             transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
             letter-spacing: 0.3px;
+            white-space: nowrap;
         }
 
         button:hover:not(:disabled) {
@@ -654,6 +667,7 @@
             cursor: pointer;
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             border: 2px solid #667eea;
+            flex-shrink: 0;
         }
 
         .indicator.active {
@@ -675,6 +689,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            white-space: nowrap;
         }
 
         /* ============ RESPONSIVE DESIGN ============ */
@@ -695,11 +710,17 @@
         @media (max-width: 768px) {
             .header {
                 padding: 12px 20px;
+                gap: 10px;
             }
 
             .slide {
-                padding: 30px 20px;
+                padding: 25px 20px;
                 min-height: auto;
+            }
+
+            .logo-section {
+                gap: 10px;
+                flex: 0 0 auto;
             }
 
             .logo-img {
@@ -707,15 +728,18 @@
             }
 
             .company-name {
-                font-size: 1em;
+                font-size: 0.95em;
             }
 
             .tagline-header {
-                font-size: 0.6em;
+                font-size: 0.55em;
+                letter-spacing: 0.5px;
             }
 
             .slide-title-header {
-                font-size: 0.8em;
+                font-size: 0.75em;
+                flex: 1;
+                text-align: right;
             }
 
             .title-slide-content h1 {
@@ -781,6 +805,11 @@
                 font-size: 0.9em;
                 padding: 15px;
                 padding-left: 40px;
+                min-height: auto;
+            }
+
+            .features-list li strong {
+                margin-bottom: 5px;
             }
 
             .service-description {
@@ -789,7 +818,7 @@
             }
 
             .price-box {
-                font-size: 1em;
+                font-size: 0.95em;
                 padding: 20px;
             }
 
@@ -818,17 +847,17 @@
             }
 
             .footer {
-                padding: 15px 20px;
+                padding: 12px 15px;
                 gap: 10px;
             }
 
             button {
-                padding: 8px 20px;
-                font-size: 0.85em;
+                padding: 8px 16px;
+                font-size: 0.8em;
             }
 
             .slide-counter {
-                font-size: 0.8em;
+                font-size: 0.75em;
             }
 
             .nav-buttons {
@@ -854,11 +883,12 @@
 
         @media (max-width: 480px) {
             .header {
-                padding: 10px 15px;
+                padding: 10px 12px;
+                gap: 8px;
             }
 
             .slide {
-                padding: 25px 15px;
+                padding: 20px 15px;
             }
 
             .logo-img {
@@ -866,19 +896,21 @@
             }
 
             .company-name {
-                font-size: 0.9em;
+                font-size: 0.85em;
             }
 
-            .logo-section {
-                gap: 10px;
+            .tagline-header {
+                font-size: 0.5em;
+                letter-spacing: 0.3px;
             }
 
-            .company-info {
-                gap: 2px;
+            .slide-title-header {
+                font-size: 0.65em;
             }
 
             .title-slide-content h1 {
                 font-size: 1.8em;
+                margin: 10px 0;
             }
 
             .title-slide-content p {
@@ -886,38 +918,73 @@
             }
 
             .title-slide-content .tagline {
-                font-size: 0.8em;
-                letter-spacing: 0.5px;
+                font-size: 0.75em;
+                letter-spacing: 1px;
+                margin-top: 10px;
             }
 
             .title-slide-logo {
                 height: 80px;
+                margin: 15px 0;
             }
 
             .service-card {
-                padding: 20px 15px;
-                min-height: 130px;
+                padding: 20px 12px;
+                min-height: 110px;
             }
 
             .service-card-icon {
-                font-size: 2.2em;
+                font-size: 2em;
             }
 
             .service-card-text {
-                font-size: 0.85em;
+                font-size: 0.8em;
+                line-height: 1.3;
+            }
+
+            .service-header-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2em;
             }
 
             .service-header-text h1 {
                 font-size: 1.4em;
             }
 
+            .service-detail-icon {
+                width: 65px;
+                height: 65px;
+                font-size: 2em;
+            }
+
             .service-detail-header h1 {
-                font-size: 1.3em;
+                font-size: 1.2em;
             }
 
             .features-list li {
+                font-size: 0.8em;
+                padding: 12px 12px;
+                padding-left: 35px;
+                line-height: 1.4;
+            }
+
+            .features-list li::before {
+                width: 22px;
+                height: 22px;
+                font-size: 0.8em;
+                top: 12px;
+            }
+
+            .service-description {
+                font-size: 0.9em;
+                padding: 15px;
+                line-height: 1.6;
+            }
+
+            .price-box {
                 font-size: 0.85em;
-                padding: 12px 15px;
+                padding: 18px 15px;
             }
 
             .thank-you-content h1 {
@@ -925,17 +992,44 @@
             }
 
             .thank-you-content p {
-                font-size: 0.95em;
+                font-size: 0.9em;
+            }
+
+            .thank-you-icon {
+                font-size: 2.5em;
+                margin-bottom: 15px;
+            }
+
+            .cta-box {
+                padding: 20px 15px;
+            }
+
+            .cta-box p:first-child {
+                font-size: 1em;
+                margin-bottom: 8px;
+            }
+
+            .cta-box p:last-child {
+                font-size: 0.85em;
+            }
+
+            .footer {
+                padding: 10px 12px;
+                gap: 8px;
             }
 
             button {
-                padding: 8px 15px;
-                font-size: 0.8em;
+                padding: 7px 12px;
+                font-size: 0.75em;
             }
 
             .indicator {
                 width: 8px;
                 height: 8px;
+            }
+
+            .slide-counter {
+                font-size: 0.7em;
             }
         }
     </style>
@@ -1023,7 +1117,7 @@
                     <h1>Website & App Development</h1>
                 </div>
                 <div class="service-description">
-                    We design and develop user-friendly, responsive, and high-performance websites and applications tailored to your brand and business objectives. From concept to deployment, we ensure exceptional digital experiences.
+                    We design and develop user-friendly, responsive, and high-performance websites and applications tailored to your brand and business objectives.
                 </div>
                 <div class="features-container">
                     <ul class="features-list">
@@ -1049,7 +1143,7 @@
                     <h1>AI Automation & Agentic Systems</h1>
                 </div>
                 <div class="service-description">
-                    We build intelligent AI-driven systems that automate complex tasks, enhance productivity, and improve user engagement. Let artificial intelligence handle repetitive work while your team focuses on strategic initiatives.
+                    We build intelligent AI-driven systems that automate complex tasks, enhance productivity, and improve user engagement.
                 </div>
                 <div class="features-container">
                     <ul class="features-list">
@@ -1075,7 +1169,7 @@
                     <h1>Custom AI & ML Solutions</h1>
                 </div>
                 <div class="service-description">
-                    We develop custom machine learning models tailored to your specific business requirements. Harness the power of data analytics and artificial intelligence for smarter business decisions and competitive advantages.
+                    We develop custom machine learning models tailored to your specific business requirements with competitive advantages.
                 </div>
                 <div class="features-container">
                     <ul class="features-list">
@@ -1101,7 +1195,7 @@
                     <h1>Cloud & API Integration Services</h1>
                 </div>
                 <div class="service-description">
-                    We deploy, manage, and integrate scalable cloud and API solutions that ensure optimal performance and reliability. Build systems that grow with your business while maintaining cost-effectiveness and security.
+                    We deploy, manage, and integrate scalable cloud and API solutions that ensure optimal performance and reliability.
                 </div>
                 <div class="features-container">
                     <ul class="features-list">
@@ -1127,7 +1221,7 @@
                     <h1>Database Management & Optimization</h1>
                 </div>
                 <div class="service-description">
-                    We provide comprehensive database management solutions ensuring data integrity, security, and exceptional performance. Keep your data secure, organized, and instantly accessible for critical business operations.
+                    We provide comprehensive database management solutions ensuring data integrity, security, and exceptional performance.
                 </div>
                 <div class="features-container">
                     <ul class="features-list">
@@ -1153,7 +1247,7 @@
                     <h1>ERP System Development</h1>
                 </div>
                 <div class="service-description">
-                    We design scalable Enterprise Resource Planning systems that integrate all business functions. Transform your operations with intelligent systems combining HR, Sales, Inventory, and Finance management.
+                    We design scalable Enterprise Resource Planning systems that integrate all business functions for improved management.
                 </div>
                 <div class="features-container">
                     <ul class="features-list">
